@@ -1,3 +1,4 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,11 +52,11 @@
             <p style="color: whitesmoke;">VEHICLE CHECK</p>
             <div class="overviewcard" style="background-color: grey;">
                 
-                <label for="">PLATE NUMBER#:</label>
+                <label for="">NUMBER#:</label>
                 <input type="text" style="background-color: black; color: yellowgreen;" id="vehicle-search">
                 <button id="vehicleButton">Search</button>
             </div>
-            
+        
             <div>
                 
                 <label for="" style="color:white;">MAKE:</label><p id="vehicle-make" style="color: green;"></p>
@@ -79,10 +80,29 @@
         <br>
         <br>
         <br>
-    <div class="main-cards">
-        <div class="card">Card
-
-        </div>
+   
+        <button id="call-button">See Calls</button>
+        <div class="card"><h1>Active Calls</h1>
+            <style>
+                th{ 
+                    color:#fff;
+                        }
+            </style>
+            
+            
+            <table class="table table-striped" style="background-color: green;">
+                <tr  class="bg-info">
+                    <th>Description</th>
+                    <th>Location</th>
+                    <th>Priority</th>
+                    <th>Unit</th>
+                </tr>
+            
+                <tbody id="myTable">
+                    
+                </tbody>
+            </table>
+        
         <div class="card">Card</div>
         <div class="card">Card</div>
     </div>

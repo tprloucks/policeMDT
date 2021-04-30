@@ -1,6 +1,7 @@
 const personButton = document.querySelector('#personButton')
 const vehicleButton = document.querySelector('#vehicleButton')
 const beep = new Audio ('sounds/beep-027.mp3')
+const callBtn = document.querySelector('#call-button')
 
 let persons = [
     {
@@ -39,6 +40,36 @@ let calls = [
         'description':"Traffic Accident",
         'priority':"2",
         'location':"14 Ross Rd"
+    },
+    {
+        'description':"Motorist Assist",
+        'priority':"3",
+        'location':"123 Street"
+    },
+    {
+        'description':"Domestic Dispute",
+        'priority':"1",
+        'location':"200 South St"
+    },
+    {
+        'description':"Traffic Stop",
+        'priority':"3",
+        'location':"1 Red Ave, South Lane"
+    },
+    {
+        'description':"Theft",
+        'priority':"2",
+        'location':"11 James Loop"
+    },
+    {
+        'description':"Traffic Accident",
+        'priority':"2",
+        'location':"1800 Block South West"
+    },
+    {
+        'description':"Fight In Progress",
+        'priority':"1",
+        'location':"1111 Gray Street"
     }
 ]
 
@@ -90,5 +121,43 @@ vehicleButton.addEventListener('click', function (){
         console.log("NOT FOUND")
     }
 })
+callBtn.addEventListener('click', function(){
+    const dallasAPI = "https://www.dallasopendata.com/resource/9fxf-t2tr.json"
+    var table = document.getElementById('myTable')
+
+    fetch(dallasAPI)
+        .then ((res)=>res.json())
+        .then ((data)=>{
+            for(i = 0; i <= 25; i++){
+                var row = `<tr>
+                        <td>${data[i].nature_of_call}</td>
+                        <td>${data[i].location}</td>
+                        <td>${data[i].priority}</td>
+                        <td>${data[i].unit_number}</td>
+                  </tr>`
+        table.innerHTML += row
+            }
+        })
+            
+        
+})
+
+//     buildTable(calls)
+
+// function buildTable(data){
+//     var table = document.getElementById('myTable')
+
+//     for (var i = 0; i < data.length; i++){
+        // var row = `<tr>
+        //                 <td>${data[i].description}</td>
+        //                 <td>${data[i].location}</td>
+        //                 <td>${data[i].priority}</td>
+        //           </tr>`
+        // table.innerHTML += row
+
+
+//     }
+// }
+
 
 
